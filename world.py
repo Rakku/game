@@ -1,7 +1,10 @@
 #!/bin/python
 
+from random import *
+
 class Node:
     def __init__(self, name, parent =None):
+        self.cur = False
         self.name = name
         self.parent = parent
         self.child_list = []
@@ -18,6 +21,7 @@ class Node:
     def is_root(self):
         return self.parent is None
 
+
 class World(Node):
     def __init__(self, name, parent =None):
         Node.__init__(self, name, parent)
@@ -26,7 +30,15 @@ class Map(World):
     def __init__(self, name, world):
         World.__init__(self, name, world)
         self.enemy_spawn_proba = 0.2
-        self.enemies = map_enemies[name]
+        self.enemies = []
+
+    def spawn_enemy(self):
+        if random() < self.enemy_spawn_proba:
+            print "An enemy has spawned !"
+            enemy = choice(self.enemies)
+            print enemy.name
+            return True, enemy
+        return False, None
 
 class City(Map):
     def __init__(self, name, m):
@@ -54,6 +66,19 @@ def write_world(world):
     for child in world.child_list:        
         write_world(child)
 #    print m.__class__.__name__ + " : " + m.name
+
+def travel(place):
+    #global current_place
+    #global current_place
+    print "travel" + str(place)
+    len = place.child_list.__len__()
+    print "Where to go ?"
+    for i in range(0, len):
+        print str(i+1) + " " + place.child_list[i].name
+    dest = int(raw_input()) - 1
+    if dest > 0 & dest < len:
+        return place.child_list[dest]
+    return place
 
 
 '''

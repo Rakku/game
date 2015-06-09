@@ -7,13 +7,13 @@
 from skills import *
 from items import *
 
-'''
+
 map_enemies = {
     'Boktai': [],
     'Zelda': [],
     'Castlevania': []
 }
-'''
+
 
 enemy_items = {
     'Soul': [potion, sirop],
