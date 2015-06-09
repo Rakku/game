@@ -26,7 +26,7 @@ class Map(World):
     def __init__(self, name, world):
         World.__init__(self, name, world)
         self.enemy_spawn_proba = 0.2
-        self.enemies = []
+        self.enemies = map_enemies[name]
 
 class City(Map):
     def __init__(self, name, m):
