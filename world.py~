@@ -1,0 +1,64 @@
+#!/bin/python
+
+class Node:
+    def __init__(self, name, parent =None):
+        self.name = name
+        self.parent = parent
+        self.child_list = []
+        if parent:
+            parent.add_child(self)
+
+    def add_child(self, child):
+        self.child_list.append(child)
+        child.parent = self
+
+    def is_leaf(self):
+        return not self.child
+
+    def is_root(self):
+        return self.parent is None
+
+class World(Node):
+    def __init__(self, name, parent =None):
+        Node.__init__(self, name, parent)
+
+class Map(World):
+    def __init__(self, name, world):
+        World.__init__(self, name, world)
+        self.enemy_spwan_proba = 0.2;
+
+class City(Map):
+    def __init__(self, name, m):
+        # Cities have no enemies
+        World.__init__(self, name, m)
+        self.chests = 5
+
+class Place(City):
+    def __init__(self, name, city):
+        World.__init__(self, name, city)
+
+def generate_map():
+    w = World('GBA')
+    m = Map('Boktai', w)
+    c = City('Solaria', m)
+    p = Place('First', c)
+    return w
+
+def write_map(m):
+    for child in m.child_list:
+        write_map(child)
+    print m.__class__.__name__ + " : " + m.name
+
+world = generate_map()
+write_map(world)
+        
+
+
+'''
+m.create_child(c)
+n1.create_child(n2)
+m.is_leaf()
+m.is_root()
+n1.is_leaf()
+n2.is_leaf()
+'''
