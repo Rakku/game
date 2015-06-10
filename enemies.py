@@ -1,27 +1,28 @@
 #!/bin/python
 
 from random import *
-from enemies_dep import *
+from enemy_tables import *
 
 
 
 class Enemy:
-    def __init__(self, name, level, hp, atk, pwr, pr, mr, exp =None, loot =None, skills =None):
-        if not exp:
-            exp = 50
+    #def __init__(self, name, hp, atk, pwr, pr, mr, exp =None, loot =None, skills =None):
+    def __init__(self, name, stats =None, loot =None, skills =None):
+        if not stats:
+            stats = enemy_base_stats[name]
         if not loot:
             loot = enemy_items[name]
         if not skills:
             skills = enemy_skills[name]
 
         self.name = name
-        self.level = level
-        self.hp = hp
-        self.atk = atk
-        self.pwr = pwr
-        self.pr = pr
-        self.mr = mr
-        self.exp = exp
+        self.hp = stats['HP']
+        self.atk = stats['ATK']
+        self.pwr = stats['PWR']
+        self.res = stats['RES']
+        self.mr = stats['MR']
+        self.exp = stats['EXP']
+        self.stats = stats
         self.loot = loot
         self.skills = skills
 
@@ -32,20 +33,17 @@ class Enemy:
     def reward(self):
         if self.loot:
             return choice(self.loot)
-        else:
-            return None
+        return None
 
     def die(self):
         return self.exp
 
-'''
-class Soul(Enemy):
-    def __init__(self, level):
-        Enemy.__init__(self, 'Soul', level*20, level*5, level*1, 0, 0, level*10, enemy_items['Soul'], enemy_skills['Soul'])
-'''
 
-lv1_soul = Enemy('Soul', 20, 5, 0, 0, 10, 20, enemy_items['Soul'], enemy_skills['Soul'])
-lv2_soul = Enemy('Soul', 30, 10, 0, 0, 10, 35, enemy_items['Soul'], enemy_skills['Soul'])
+# Enemy : Soul
+zelda_soul = Enemy('Soul')
+boktai_soul = Enemy('Soul')
+castle_soul = Enemy('Soul')
+
 
 
 '''

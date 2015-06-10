@@ -8,8 +8,8 @@ from hero import *
 
 # TESTS MODULE HERO
 name = raw_input("Choose the name of your Hero\n")
-hero = Hero(name, 50, 10, 10, 5, 0)
-hero.learn_skill(tourment)
+Glob.hero = Hero(name, 50, 10, 10, 5, 0)
+Glob.hero.learn_skill(tourment)
 
 # TESTS MODULE WORLD
 w = generate_map()
@@ -19,8 +19,6 @@ write_world(Glob.current_place)
 while Glob.current_place.child_list:
     glob_travel()
 
-if Glob.current_place.__class__ == Map:
-    Glob.current_place.enemies = [lv1_soul, lv2_soul]
 
 success = 0
 for i in range(0,50):

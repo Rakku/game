@@ -19,3 +19,22 @@ def print_travel():
     print "--- %s ---" % str(Glob.current_place.child_list[0].__class__)
     for i in range(0, len):
         print str(i+1) + " " + Glob.current_place.child_list[i].name
+
+def print_map():
+    node = Glob.current_place
+    for x in range(0, node.size):
+        str = '.'
+        for y in range(0, node.size):
+            if Glob.hero.pos[0] == x and Glob.hero.pos[1] == y:
+                str += "X."
+            else:
+                str += "_."
+
+def print_enemy(enemy):
+    print "--- " + enemy.name
+    for key in enemy.stats:
+        print key + " = " + str(enemy.stats[key])
+    gain = ""
+    for item in enemy.loot:
+        gain += "%s " % item.name
+    print "Can drop : %s" % gain
