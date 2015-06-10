@@ -1,6 +1,7 @@
 #!/bin/python
 
 from console_ui import *
+from items import *
 
 hero_base_stats = {
     'Warrior': {
@@ -44,7 +45,11 @@ class Hero:
         self.exp = self.stats['EXP']
         self.level = 1
 
-        self.items = []
+        # list of Item objects
+        self.items = {
+            'potion' : 2
+        }
+        # List of Skill objects
         self.skills = skills
 
         self.pos = [0, 0]
@@ -56,13 +61,30 @@ class Hero:
     def attack(self, enemy):
         enemy.hp -= self.atk
 
+    def add_item(self, item_name, qtity =1):
+        if item_name in self.items.keys():
+            self.items[item_name] += qtity
+        else:
+            self.items[item_name] = qtity
+
+    def use_item(self, item_name):
+        if item_name in self.items.keys():
+            if self.items[item_name] > 0:
+                self.items[item_name] -= 1
+                effect = usable_items[item_name]
+                print effect
+            else:
+                print "Don't have this"
+        else:
+            print "Don't know what that is actually"
+
     def kill(self, enemy):
         gain = enemy.reward()
-
         self.exp += enemy.exp
-        self.items.append(gain)
-
+        self.add_item(gain)
         print_enemy_killed(enemy, gain)
+
+
 
     def fight_turn(self, enemy):
         print_fight_choices()

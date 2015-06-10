@@ -9,7 +9,7 @@ def choose_hero_name():
     confirm = ''
     while confirm != 'y' and confirm != 'yes':
         confirm = raw_input("Your Hero is called %s : is it correct ? (y/yes)") % name
-    return name
+    return name     # string
 
 def choose_spec():
     spec = ''
@@ -18,14 +18,17 @@ def choose_spec():
         print spec
         spec = raw_input("Choose the spec of your Hero :\n")
         spec[0].upper()
-    return spec
+    return spec     # string
 
 def init():
     # TESTS MODULE HERO
-    name = raw_input("Choose the name of your Hero\n")
-    #name = choose_hero_name()
-    spec = choose_spec()
-    Glob.hero = Hero(name, spec)
+    style = ''
+    if style == 'manuel':
+        name = raw_input("Choose the name of your Hero\n")
+        #name = choose_hero_name()
+        spec = choose_spec()
+        Glob.hero = Hero(name, spec)
+    Glob.hero = Hero('Kaze', 'Mage')
 
     # TESTS MODULE WORLD
     Glob.current_place = generate_map()

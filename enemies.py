@@ -28,6 +28,7 @@ class Enemy:
 
     def fight_turn(self, foe):
         self.attack(foe)
+        print foe.hp
 
     def attack(self, foe):
         foe.hp -= self.atk
@@ -35,7 +36,7 @@ class Enemy:
 
     def reward(self):
         if self.loot:
-            return choice(self.loot)
+            return choice(self.loot)    # Item object
         return None
 
 '''

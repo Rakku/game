@@ -58,13 +58,18 @@ def print_travel():
 def print_hero_stats():
     hero = Glob.hero
     print " --> Stats :"
-    for key in ['HP', 'ATK', 'PWR', 'RES', 'MR', 'EXP']:
-        print "%s : %s" % (key, hero.stats[key])
+    print "HP : %i / %i" % (hero.hp, hero.stats['HP'])
+    print "ATK : %i" % hero.atk
+    print "PWR : %i" % hero.pwr
+    print "RES : %i" % hero.res
+    print "MR : %i" % hero.mr
+    print "EXP : %i" % hero.exp
+
 
 def print_hero_inventaire():
     str = ""
-    for elt in Glob.hero.items:
-        str += "%s " % elt.name
+    for key in Glob.hero.items:
+        str += "%s x%i" % (key, Glob.hero.items[key])
     print " --> Inventaire :"
     print str
     return str
@@ -93,7 +98,7 @@ def print_enemy(enemy):
         print key + " = " + str(enemy.stats[key])
     gain = ""
     for elt in enemy.loot:
-        gain += "%s " % elt.name
+        gain += "%s " % elt
     #gain = get_string(enemy.loot)
     print "Can drop : %s" % gain
 
@@ -122,4 +127,4 @@ def print_enemy_killed(enemy, gain):
     print "You have killed %s !" % enemy.name
     print "You gain %i EXP" % enemy.exp
     if gain:
-        print "You have looted %s !" % gain.name
+        print "You have looted %s !" % gain

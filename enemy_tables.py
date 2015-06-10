@@ -10,15 +10,15 @@ from items import *
 
 
 enemy_items = {
-    'Soul': [potion, sirop],
-    'Specter': [amulette],
-    'Wolf': [croc, poil]
+    'Soul': ['potion', 'sirop'],
+    'Specter': ['amulette'],
+    'Wolf': ['croc', 'poil']
 }
 
 enemy_skills = {
-    'Soul': [tourment],
-    'Specter': [tourment, cri],
-    'Wolf': [morsure, charge]
+    'Soul': ['Tourment'],
+    'Specter': ['Tourment', 'Cri'],
+    'Wolf': ['Morsure', 'Charge']
 }
 
 enemy_base_stats = {
