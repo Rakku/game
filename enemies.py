@@ -26,40 +26,21 @@ class Enemy:
         self.loot = loot
         self.skills = skills
 
+    def fight_turn(self, foe):
+        self.attack(foe)
 
     def attack(self, foe):
-        foe.hp -= self.atk - foe.mr/100
+        foe.hp -= self.atk
+        print "%s deals %i dmg !" % (self.name, self.atk)
 
     def reward(self):
         if self.loot:
             return choice(self.loot)
         return None
 
-    def die(self):
-        return self.exp
-
-
+'''
 # Enemy : Soul
 zelda_soul = Enemy('Soul')
 boktai_soul = Enemy('Soul')
 castle_soul = Enemy('Soul')
-
-
-
-'''
-# Require world ??
-def spawn_enemy(where):
-    print "-----"
-    if random() < where.enemy_spawn_proba:
-        print "An enemy has spawned !"
-        enemy = choice(where.enemies)
-        print enemy.name
-        return True
-    return False
-
-        self.hp = 20
-        self.pr = 0
-        self.mr = 0
-        self.atk = 5
-        self.pwr = 1
 '''

@@ -24,7 +24,7 @@ enemy_skills = {
 enemy_base_stats = {
     'Soul': {
         'HP': 20,
-        'ATK': 5,
+        'ATK': 2,
         'PWR': 0,
         'RES': 0,
         'MR': 5,

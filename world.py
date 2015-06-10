@@ -4,12 +4,13 @@
 from variables import Glob
 from console_ui import *
 from enemies import *
+from fights import *
 from random import *
 
 map_enemies = {
-    'Boktai': [boktai_soul],
-    'Zelda': [zelda_soul],
-    'Castlevania': [castle_soul]
+    'Boktai': ['Soul'],
+    'Zelda': ['Soul'],
+    'Castlevania': ['Soul']
 }
 
 class Node:
@@ -41,7 +42,9 @@ class Node:
         if self.enemies:
             if random() < self.enemy_spawn_proba:
                 print "An enemy has spawned !"
-                enemy = choice(self.enemies)
+                enemy = Enemy(choice(self.enemies))
+                if not enemy.name in Glob.pokedex.keys():
+                    Glob.pokedex[enemy.name] = enemy
                 print_enemy(enemy)
                 return True, enemy
         return False, None
@@ -124,8 +127,9 @@ def glob_travel():
     print "You are now in " + Glob.current_place.name
 
     # Wanna fight ?
-    Glob.current_place.spawn_enemy()
-
+    spawn, enemy = Glob.current_place.spawn_enemy()
+    if spawn:
+        fight(enemy)
 
 '''
 m.create_child(c)

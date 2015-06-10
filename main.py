@@ -4,20 +4,13 @@ from variables import Glob
 from world import *
 from enemies import *
 from hero import *
+from init_game import *
 
 
-# TESTS MODULE HERO
-name = raw_input("Choose the name of your Hero\n")
-Glob.hero = Hero(name, 50, 10, 10, 5, 0)
-Glob.hero.learn_skill(tourment)
 
-# TESTS MODULE WORLD
-w = generate_map()
-Glob.current_place = w
-write_world(Glob.current_place)
 
-while Glob.current_place.child_list:
-    glob_travel()
+init()
+
 
 
 success = 0
@@ -30,6 +23,17 @@ print str(success) + "/50"
 
 print "You are in " + Glob.current_place.name
 
+
+while(1):
+    cmd = raw_input()
+    if cmd == 'move':
+        glob_travel()
+    if cmd == 'zone':
+        print "You are in " + Glob.current_place.name
+    if cmd == 'hero':
+        print_hero_info()
+    if cmd == 'enemy':
+        print_pokedex()
 '''
 print "GAME START !"
 # Main Loop
