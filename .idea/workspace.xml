@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2beb4c61-2472-4809-b521-a1e0ac348206" name="Default" comment="Init&#10;Main loop&#10;Cmd : move, hero, enemy&#10;Fights&#10;Next step : check stats, level up, etc">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/console_ui.py" afterPath="$PROJECT_DIR$/console_ui.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/enemies.py" afterPath="$PROJECT_DIR$/enemies.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/enemy_tables.py" afterPath="$PROJECT_DIR$/enemy_tables.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fights.py" afterPath="$PROJECT_DIR$/fights.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hero.py" afterPath="$PROJECT_DIR$/hero.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/init_game.py" afterPath="$PROJECT_DIR$/init_game.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/items.py" afterPath="$PROJECT_DIR$/items.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/skills.py" afterPath="$PROJECT_DIR$/skills.py" />
+    <list default="true" id="2beb4c61-2472-4809-b521-a1e0ac348206" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="game.iws" />
@@ -415,7 +406,13 @@
       <option name="project" value="LOCAL" />
       <updated>1433968363847</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Init&#10;Main loop&#10;Cmd : move, zone, hero, enemy, use&#10;Next step : Real Fights, Real Items, Real Spells">
+      <created>1433973627810</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1433973627810</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -463,7 +460,8 @@
     <MESSAGE value="Map movement OK" />
     <MESSAGE value="Enemy spawn chance when travelling" />
     <MESSAGE value="Init&#10;Main loop&#10;Cmd : move, hero, enemy&#10;Fights&#10;Next step : check stats, level up, etc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init&#10;Main loop&#10;Cmd : move, hero, enemy&#10;Fights&#10;Next step : check stats, level up, etc" />
+    <MESSAGE value="Init&#10;Main loop&#10;Cmd : move, zone, hero, enemy, use&#10;Next step : Real Fights, Real Items, Real Spells" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init&#10;Main loop&#10;Cmd : move, zone, hero, enemy, use&#10;Next step : Real Fights, Real Items, Real Spells" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
